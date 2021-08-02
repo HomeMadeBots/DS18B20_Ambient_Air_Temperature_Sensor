@@ -1,0 +1,26 @@
+@startuml
+
+class DS18B20_Ambient_Air_Temperature_Sensor <<Component_Type>>
+{
+  The Component_Type allows to get a temperature measured with a DS18B20 device.
+
+  The Cyclic operation of the Component_Type shall be called at a frequency
+  depending on the resolution of the temperature measured by the DS18B20 device.
+  Typical values are the following (resolution | Cyclic period) :
+    9 bits | 100ms
+    10 bits | 200 ms
+    11 bits | 500 ms
+    12 bits | 750 ms
+
+  The execution time of the Cyclic operation depends on the One_Wire_Protocol
+  interface implementation. Typical value should be below 7ms.
+
+  The address of the DS18B20 shall be known and set at the Component_Prototype
+  creation.
+  --
+  Device_Address:T_One_Wire_Device_Address
+  --
+  + Cyclic()
+}
+
+@enduml
