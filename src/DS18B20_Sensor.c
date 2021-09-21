@@ -1,4 +1,4 @@
-#include "DS18B20_Ambient_Air_Temperature_Sensor.h"
+#include "DS18B20_Sensor.h"
 
 
 /*============================================================================*/
@@ -27,7 +27,7 @@
 /*============================================================================*/
 /* Component_Operations */
 /*============================================================================*/
-void DS18B20__Cyclic( const DS18B20_Ambient_Air_Temperature_Sensor* Me )
+void DS18B20__Measure_Temperature( const DS18B20_Sensor* Me )
 {
     /* Check Last_Performed_Action */
     if( DS18B20_ACTION_READ_SCRATCHPAD==My_Last_Performed_Action )
@@ -70,7 +70,7 @@ void DS18B20__Cyclic( const DS18B20_Ambient_Air_Temperature_Sensor* Me )
 /* Realized interfaces */
 /*============================================================================*/
 void DS18B20__Ambient_Air_Temperature__Get_Temperature(
-    const DS18B20_Ambient_Air_Temperature_Sensor* Me,
+    const DS18B20_Sensor* Me,
     T_Ambient_Air_Temperature* temperature )
 {
     *temperature = My_Air_Temperature;
