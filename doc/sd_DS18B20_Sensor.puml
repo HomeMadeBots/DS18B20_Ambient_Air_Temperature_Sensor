@@ -1,0 +1,34 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+!pragma teoz true
+
+participant OS
+participant ":DS18B20_Sensor" as DS18B20_Sensor
+participant ":One_Wire_Protocol" as One_Wire_Protocol
+
+loop
+
+  {first_call} OS -> DS18B20_Sensor : Measure_Temperature()
+  activate DS18B20_Sensor
+    DS18B20_Sensor -> One_Wire_Protocol : Send_Simple_Command( Device_Adress, 0xBE )
+    activate One_Wire_Protocol
+    return
+  return
+
+  ||120||
+
+  {second_call} OS -> DS18B20_Sensor : Measure_Temperature()
+  activate DS18B20_Sensor
+    DS18B20_Sensor -> One_Wire_Protocol : Send_Read_Command( Device_Adress, 0x44, -, 2 )
+    activate One_Wire_Protocol
+    return Send_Read_Command( -, -, scratchpad, - )
+  DS18B20_Sensor -> DS18B20_Sensor : Convert scratchpad into temperature.
+  return
+
+  {first_call} <-> {second_call} : \ldepends on temperature\lresolution :\l   9 bits : 100 ms\l   10 bits : 200 ms\l   11 bits : 500 ms\l   12 bits : 750 ms
+
+end
+
+@enduml

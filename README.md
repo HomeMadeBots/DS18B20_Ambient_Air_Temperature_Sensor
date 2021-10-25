@@ -18,6 +18,10 @@ The DS18B20_Ambient_Air_Temperature_Sensor package gathers :
 
 ![Overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/DS18B20_Ambient_Air_Temperature_Sensor/master/doc/overview.puml)
 
+## DS18B20_Sensor dynamic behavior
+
+![DS18B20_Sensor dynamic behavior](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/DS18B20_Ambient_Air_Temperature_Sensor/master/doc/sd_DS18B20_Sensor.puml)
+
 ## Dependencies
 
 ![Packages dependencies](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/DS18B20_Ambient_Air_Temperature_Sensor/master/doc/dependencies.puml)
